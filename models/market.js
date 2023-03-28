@@ -8,10 +8,10 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      Market.belongsTo(models.User, {
-        as: 'market',
-        foreignKey: 'ownerId'
-      })
+      Market.hasMany(models.Art, { foreignKey: 'marketId' })
+      Market.hasMany(models.Food, { foreignKey: 'marketId' })
+      Market.hasMany(models.Service, { foreignKey: 'marketId' })
+      Market.hasMany(models.Produce, { foreignKey: 'marketId' })
     }
   }
   Market.init(

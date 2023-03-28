@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
       User.hasMany(models.Art, { foreignKey: 'ownerId' })
       User.hasMany(models.Community, { foreignKey: 'ownerId' })
       User.hasMany(models.Food, { foreignKey: 'ownerId' })
-      User.hasMany(models.Market, { foreignKey: 'ownerId' })
+      User.hasMany(models.Produce, { foreignKey: 'ownerId' })
       User.hasMany(models.Service, { foreignKey: 'ownerId' })
     }
   }

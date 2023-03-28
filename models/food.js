@@ -12,6 +12,10 @@ module.exports = (sequelize, DataTypes) => {
         as: 'food',
         foreignKey: 'ownerId'
       })
+      Food.belongsTo(models.Market, {
+        as: 'food',
+        foreignKey: 'marketId'
+      })
     }
   }
   Food.init(
