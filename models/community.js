@@ -8,7 +8,10 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      Community.belongsTo(models.User, {
+        as: 'news',
+        foreignKey: 'ownerId'
+      })
     }
   }
   Community.init(
@@ -17,7 +20,10 @@ module.exports = (sequelize, DataTypes) => {
       description: DataTypes.TEXT,
       picture1: DataTypes.TEXT,
       picture2: DataTypes.TEXT,
-      link: DataTypes.TEXT
+      link: {
+        type: DataTypes.TEXT,
+        allowNull: false
+      }
     },
     {
       sequelize,
