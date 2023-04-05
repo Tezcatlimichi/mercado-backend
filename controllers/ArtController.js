@@ -20,8 +20,22 @@ const GetArt = async (req, res) => {
     throw error
   }
 }
+//create
+
+const NewArt = async (req, res) => {
+  try {
+    let data = {
+      ...req.body
+    }
+    let artPiece = await Art.create(data)
+    res.send(artPiece)
+  } catch (error) {
+    throw error
+  }
+}
 
 module.exports = {
   GetAllArt,
-  GetArt
+  GetArt,
+  NewArt
 }
