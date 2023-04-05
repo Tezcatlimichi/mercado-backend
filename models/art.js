@@ -26,7 +26,8 @@ module.exports = (sequelize, DataTypes) => {
       location: DataTypes.INTEGER,
       picture1: DataTypes.TEXT,
       picture2: DataTypes.TEXT,
-      picture3: DataTypes.TEXT
+      picture3: DataTypes.TEXT,
+      marketId: DataTypes.INTEGER
     },
     {
       sequelize,
