@@ -11,6 +11,6 @@ app.use(express.json())
 app.use(logger('dev'))
 app.use(express.urlencoded({ extended: true }))
 // routes
-app.get('/', (req, res) => res.json({ message: 'Server ON ' }))
+app.get('/', (req, res) => res.json({ message: 'Server ON' }))
 
 app.listen(PORT, () => console.log(`Server Started On Port: ${PORT}`))
