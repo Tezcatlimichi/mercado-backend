@@ -9,11 +9,11 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       Food.belongsTo(models.User, {
-        as: 'food',
+        as: 'foodOwner',
         foreignKey: 'ownerId'
       })
       Food.belongsTo(models.Market, {
-        as: 'food',
+        as: 'foodMarket',
         foreignKey: 'marketId'
       })
     }
