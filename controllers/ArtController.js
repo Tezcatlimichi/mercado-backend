@@ -48,10 +48,22 @@ const UpdateArt = async (req, res) => {
     throw error
   }
 }
+//delete art
+const DeleteArt = async (req, res) => {
+  try {
+    await Art.destroy({ where: { id: req.params.id } })
+    res.send({
+      message: 'Art post has been successfully deleted'
+    })
+  } catch (error) {
+    throw error
+  }
+}
 
 module.exports = {
   GetAllArt,
   GetArt,
   NewArt,
-  UpdateArt
+  UpdateArt,
+  DeleteArt
 }
