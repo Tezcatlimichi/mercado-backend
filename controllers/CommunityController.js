@@ -22,8 +22,22 @@ const NewArticle = async (req, res) => {
     throw error
   }
 }
+//update community post
+const UpdateArticle = async (req, res) => {
+  try {
+    let articleId = parseInt(req.params.id)
+    const updated = await Community.update(req.body, {
+      where: { id: articleId },
+      returning: true
+    })
+    res.send(updated)
+  } catch (error) {
+    throw error
+  }
+}
 
 module.exports = {
   GetAllArticles,
-  NewArticle
+  NewArticle,
+  UpdateArticle
 }
