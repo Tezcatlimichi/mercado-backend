@@ -9,6 +9,16 @@ const GetAllArticles = async (req, res) => {
     throw error
   }
 }
+//read single community article
+const OneArticle = async (req, res) => {
+  try {
+    let articleId = parseInt(req.params.id)
+    const article = await Community.findOne({ where: { id: articleId } })
+    res.send(article)
+  } catch (error) {
+    throw error
+  }
+}
 
 //create
 const NewArticle = async (req, res) => {
@@ -38,6 +48,7 @@ const UpdateArticle = async (req, res) => {
 
 module.exports = {
   GetAllArticles,
+  OneArticle,
   NewArticle,
   UpdateArticle
 }
