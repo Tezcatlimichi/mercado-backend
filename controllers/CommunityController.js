@@ -45,10 +45,22 @@ const UpdateArticle = async (req, res) => {
     throw error
   }
 }
+// delete community post
+const DeleteArticle = async (req, res) => {
+  try {
+    await Community.destroy({ where: { id: req.params.id } })
+    res.send({
+      message: `Post has been successfully deleted`
+    })
+  } catch (error) {
+    throw error
+  }
+}
 
 module.exports = {
   GetAllArticles,
   OneArticle,
   NewArticle,
-  UpdateArticle
+  UpdateArticle,
+  DeleteArticle
 }
