@@ -13,14 +13,14 @@ const GetAllArt = async (req, res) => {
 //read single art
 const GetArt = async (req, res) => {
   try {
-    let artId = parseInt(req.paras.id)
+    let artId = parseInt(req.params.id)
     const oneArt = await Art.findOne({ where: { id: artId } })
     res.send(oneArt)
   } catch (error) {
     throw error
   }
 }
-//create
+//create art
 
 const NewArt = async (req, res) => {
   try {
@@ -34,8 +34,24 @@ const NewArt = async (req, res) => {
   }
 }
 
+// update art
+
+const UpdateArt = async (req, res) => {
+  try {
+    let artId = parseInt(req.params.id)
+    const updated = await Art.update(req.body, {
+      where: { id: artId },
+      returning: true
+    })
+    res.send(updated)
+  } catch (error) {
+    throw error
+  }
+}
+
 module.exports = {
   GetAllArt,
   GetArt,
-  NewArt
+  NewArt,
+  UpdateArt
 }
