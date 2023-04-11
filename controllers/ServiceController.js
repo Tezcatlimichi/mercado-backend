@@ -38,12 +38,18 @@ const GetService = async (req, res) => {
 }
 
 //update service
-// const UpdateService = async (req, res) => {
-//   try {
-//   } catch (error) {
-//     throw error
-//   }
-// }
+const UpdateService = async (req, res) => {
+  try {
+    let serviceId = parseInt(req.params.id)
+    const updatedService = await Service.update(req.body, {
+      where: { id: serviceId },
+      returning: true
+    })
+    res.send(updatedService)
+  } catch (error) {
+    throw error
+  }
+}
 
 //delete service
 // const DeleteService = async (req,res) =>{
@@ -56,5 +62,6 @@ const GetService = async (req, res) => {
 module.exports = {
   NewService,
   GetAllServices,
-  GetService
+  GetService,
+  UpdateService
 }

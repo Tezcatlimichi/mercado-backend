@@ -3,5 +3,6 @@ const controller = require('../controllers/ServiceController')
 Router.post('/', controller.NewService)
 Router.get('/', controller.GetAllServices)
 Router.get('/:id', controller.GetService)
+Router.put('/:id', controller.UpdateService)
 
 module.exports = Router
