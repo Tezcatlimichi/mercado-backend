@@ -48,10 +48,21 @@ const UpdateMarket = async (req, res) => {
     throw error
   }
 }
-
+//delete market
+const DeleteMarket = async (req, res) => {
+  try {
+    await Market.destroy({ where: { id: req.params.id } })
+    res.send({
+      message: 'Market has been successfully deleted!'
+    })
+  } catch (error) {
+    throw error
+  }
+}
 module.exports = {
   GetAllMarkets,
   GetMarket,
   NewMarket,
-  UpdateMarket
+  UpdateMarket,
+  DeleteMarket
 }
