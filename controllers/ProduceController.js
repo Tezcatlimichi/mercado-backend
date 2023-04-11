@@ -12,13 +12,15 @@ const NewProduce = async (req, res) => {
     throw error
   }
 }
-// //read all produce
-// const AllProduce = async (req, res) => {
-//   try {
-//   } catch (error) {
-//     throw error
-//   }
-// }
+//read all produce
+const AllProduce = async (req, res) => {
+  try {
+    const produce = await Produce.findAll()
+    res.send(produce)
+  } catch (error) {
+    throw error
+  }
+}
 // //read single produce
 // const OneProduce = async (req, res) => {
 //   try {
@@ -42,5 +44,6 @@ const NewProduce = async (req, res) => {
 // }
 
 module.exports = {
-  NewProduce
+  NewProduce,
+  AllProduce
 }
