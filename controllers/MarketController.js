@@ -9,7 +9,20 @@ const GetAllMarkets = async (req, res) => {
     throw error
   }
 }
-
+//read single market
+const GetMarket = async (req, res) => {
+  try {
+    let marketId = parseInt(req.params.id)
+    const market = await Market.findOne({
+      where: { id: marketId },
+      returning: true
+    })
+    res.send(market)
+  } catch (error) {
+    throw error
+  }
+}
 module.exports = {
-  GetAllMarkets
+  GetAllMarkets,
+  GetMarket
 }
