@@ -23,6 +23,6 @@ app.use('/community', CommunityRouter)
 app.use('/food', FoodRouter)
 app.use('/markets', MarketRouter)
 app.use('/produce', ProduceRouter)
-app.use('/service', ServiceRouter)
+app.use('/services', ServiceRouter)
 
 app.listen(PORT, () => console.log(`Server Started On Port: ${PORT}`))

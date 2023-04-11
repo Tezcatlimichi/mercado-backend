@@ -14,20 +14,28 @@ const NewService = async (req, res) => {
 }
 
 // read all services
-// const GetAllServices = async (req, res) => {
-//   try {
-//   } catch (error) {
-//     throw error
-//   }
-// }
+const GetAllServices = async (req, res) => {
+  try {
+    const services = await Service.findAll()
+    res.send(services)
+  } catch (error) {
+    throw error
+  }
+}
 
 //read single service
-// const GetService = async (req, res) => {
-//   try {
-//   } catch (error) {
-//     throw error
-//   }
-// }
+const GetService = async (req, res) => {
+  try {
+    let serviceId = parseInt(req.params.id)
+    const service = await Service.findOne({
+      where: { id: serviceId },
+      returning: true
+    })
+    res.send(service)
+  } catch (error) {
+    throw error
+  }
+}
 
 //update service
 // const UpdateService = async (req, res) => {
@@ -46,5 +54,7 @@ const NewService = async (req, res) => {
 //   }
 // }
 module.exports = {
-  NewService
+  NewService,
+  GetAllServices,
+  GetService
 }
