@@ -47,10 +47,22 @@ const UpdateFood = async (req, res) => {
     throw error
   }
 }
+//delete food item
+const DeleteFood = async (req, res) => {
+  try {
+    await Food.destroy({ where: { id: req.params.id } })
+    res.send({
+      message: `Food item has been successfully deleted`
+    })
+  } catch (error) {
+    throw error
+  }
+}
 
 module.exports = {
   GetAllFood,
   GetSingleFood,
   MakeFood,
-  UpdateFood
+  UpdateFood,
+  DeleteFood
 }
