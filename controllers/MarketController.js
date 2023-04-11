@@ -35,8 +35,23 @@ const NewMarket = async (req, res) => {
     throw error
   }
 }
+// update market
+const UpdateMarket = async (req, res) => {
+  try {
+    let marketId = parseInt(req.params.id)
+    const market = await Market.update(req.body, {
+      where: { id: marketId },
+      returning: true
+    })
+    res.send(market)
+  } catch (error) {
+    throw error
+  }
+}
+
 module.exports = {
   GetAllMarkets,
   GetMarket,
-  NewMarket
+  NewMarket,
+  UpdateMarket
 }
