@@ -22,7 +22,21 @@ const GetMarket = async (req, res) => {
     throw error
   }
 }
+
+//create market
+const NewMarket = async (req, res) => {
+  try {
+    let data = {
+      ...req.body
+    }
+    const market = await Market.create(data)
+    res.send(market)
+  } catch (error) {
+    throw error
+  }
+}
 module.exports = {
   GetAllMarkets,
-  GetMarket
+  GetMarket,
+  NewMarket
 }
