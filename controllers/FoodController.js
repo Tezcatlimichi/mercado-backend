@@ -34,9 +34,23 @@ const MakeFood = async (req, res) => {
     throw error
   }
 }
+//update food item
+const UpdateFood = async (req, res) => {
+  try {
+    let foodId = parseInt(req.params.id)
+    const changeFood = await Food.update(req.body, {
+      where: { id: foodId },
+      returning: true
+    })
+    res.send(changeFood)
+  } catch (error) {
+    throw error
+  }
+}
 
 module.exports = {
   GetAllFood,
   GetSingleFood,
-  MakeFood
+  MakeFood,
+  UpdateFood
 }
