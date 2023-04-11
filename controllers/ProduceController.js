@@ -34,7 +34,7 @@ const OneProduce = async (req, res) => {
     throw error
   }
 }
-// // update single produce
+// update single produce
 const UpdateProduce = async (req, res) => {
   try {
     let produceId = parseInt(req.params.id)
@@ -47,17 +47,25 @@ const UpdateProduce = async (req, res) => {
     throw error
   }
 }
-// // delete single produce
-// const DeleteProduce = async (req, res) => {
-//   try {
-//   } catch (error) {
-//     throw error
-//   }
-// }
+// delete single produce
+const DeleteProduce = async (req, res) => {
+  try {
+    await Produce.destroy({
+      where: { id: req.params.id },
+      returning: true
+    })
+    res.send({
+      message: `Produce has been successfully deleted!`
+    })
+  } catch (error) {
+    throw error
+  }
+}
 
 module.exports = {
   NewProduce,
   AllProduce,
   OneProduce,
-  UpdateProduce
+  UpdateProduce,
+  DeleteProduce
 }
