@@ -6,6 +6,7 @@ const CommunityRouter = require('./routes/CommunityRouter')
 const FoodRouter = require('./routes/FoodRouter')
 const MarketRouter = require('./routes/MarketRouter')
 const ProduceRouter = require('./routes/ProduceRouter')
+const ServiceRouter = require('./routes/ServiceRouter')
 
 const app = express()
 
@@ -22,5 +23,6 @@ app.use('/community', CommunityRouter)
 app.use('/food', FoodRouter)
 app.use('/markets', MarketRouter)
 app.use('/produce', ProduceRouter)
+app.use('/service', ServiceRouter)
 
 app.listen(PORT, () => console.log(`Server Started On Port: ${PORT}`))
