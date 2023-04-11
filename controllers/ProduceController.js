@@ -21,13 +21,19 @@ const AllProduce = async (req, res) => {
     throw error
   }
 }
-// //read single produce
-// const OneProduce = async (req, res) => {
-//   try {
-//   } catch (error) {
-//     throw error
-//   }
-// }
+//read single produce
+const OneProduce = async (req, res) => {
+  try {
+    let produceId = parseInt(req.params.id)
+    const produce = await Produce.findOne({
+      where: { id: produceId },
+      returning: true
+    })
+    res.send(produce)
+  } catch (error) {
+    throw error
+  }
+}
 // // update single produce
 // const UpdateProduce = async (req, res) => {
 //   try {
@@ -45,5 +51,6 @@ const AllProduce = async (req, res) => {
 
 module.exports = {
   NewProduce,
-  AllProduce
+  AllProduce,
+  OneProduce
 }
