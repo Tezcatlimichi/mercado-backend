@@ -22,8 +22,21 @@ const GetSingleFood = async (req, res) => {
     throw error
   }
 }
+//create food item
+const MakeFood = async (req, res) => {
+  try {
+    let data = {
+      ...req.body
+    }
+    let food = await Food.create(data)
+    res.send(food)
+  } catch (error) {
+    throw error
+  }
+}
 
 module.exports = {
   GetAllFood,
-  GetSingleFood
+  GetSingleFood,
+  MakeFood
 }
