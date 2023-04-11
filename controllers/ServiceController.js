@@ -52,16 +52,23 @@ const UpdateService = async (req, res) => {
 }
 
 //delete service
-// const DeleteService = async (req,res) =>{
-//   try{
-
-//   }catch (error){
-//     throw error
-//   }
-// }
+const DeleteService = async (req, res) => {
+  try {
+    await Service.destroy({
+      where: { id: req.params.id },
+      returning: true
+    })
+    res.send({
+      message: `Service deleted successfully !`
+    })
+  } catch (error) {
+    throw error
+  }
+}
 module.exports = {
   NewService,
   GetAllServices,
   GetService,
-  UpdateService
+  UpdateService,
+  DeleteService
 }
