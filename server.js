@@ -3,6 +3,7 @@ const cors = require('cors')
 const logger = require('morgan')
 const ArtRouter = require('./routes/ArtRouter')
 const CommunityRouter = require('./routes/CommunityRouter')
+const FoodRouter = require('./routes/FoodRouter')
 
 const app = express()
 
@@ -16,5 +17,6 @@ app.use(express.urlencoded({ extended: true }))
 app.get('/', (req, res) => res.json({ message: 'Server ON' }))
 app.use('/art', ArtRouter)
 app.use('/community', CommunityRouter)
+app.use('/food', FoodRouter)
 
 app.listen(PORT, () => console.log(`Server Started On Port: ${PORT}`))
