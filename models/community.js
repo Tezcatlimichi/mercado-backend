@@ -17,6 +17,7 @@ module.exports = (sequelize, DataTypes) => {
   Community.init(
     {
       ownerId: DataTypes.INTEGER,
+      title: DataTypes.TEXT,
       description: DataTypes.TEXT,
       picture1: DataTypes.TEXT,
       picture2: DataTypes.TEXT,
