@@ -20,7 +20,6 @@ module.exports = (sequelize, DataTypes) => {
       title: DataTypes.TEXT,
       description: DataTypes.TEXT,
       picture1: DataTypes.TEXT,
-      picture2: DataTypes.TEXT,
       link: {
         type: DataTypes.TEXT,
         allowNull: false
